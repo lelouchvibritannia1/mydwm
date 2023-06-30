@@ -14,8 +14,8 @@
 #include <time.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-//#include <alsa/asoundlib.h>
-//#include <alsa/control.h>
+#include <alsa/asoundlib.h>
+#include <alsa/control.h>
 #include <X11/Xlib.h>
 
 char *tzargentina = "America/Buenos_Aires";
@@ -172,6 +172,7 @@ getbattery(char *base)
 
 	return smprintf("%.0f%%%c", ((float)remcap / (float)descap) * 100, status);
 }
+
 
 char *
 gettemperature(char *base, char *sensor)
