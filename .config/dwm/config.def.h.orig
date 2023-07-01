@@ -20,15 +20,17 @@ static const char *colors[][3]      = {
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
-static const char *upvol[] = { "/usr/bin/amixer", "set", "Master", "5%+", NULL };
-static const char *downvol[] = { "/usr/bin/amixer", "set", "Master", "5%-", NULL };
+static const char *upvol[] = { "/usr/bin/pactl", "set-sink-volume", "@DEFAULT_SINK@", "+10%", NULL };
+static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "@DEFAULT_SINK@", "-10%", NULL };
 static const char *mutevol[] = { "/usr/bin/amixer", "set", "Master", "toggle", NULL };
-static const char *light_up[] = {"/usr/bin/brightnessctl", "s", "5+", NULL};
-static const char *light_down[] = {"/usr/bin/brightnessctl", "s", "5-", NULL};
+static const char *light_up[] = {"/usr/local/bin/brightnessctl", "s", "10+", NULL};
+static const char *light_down[] = {"/usr/local/bin/brightnessctl", "s", "10-", NULL};
+static const char *ss[]={"/usr/bin/flameshot", "gui", NULL};
+static const char *ss_full[]={"/usr/bin/flameshot", "full", "-p", "/home/schconj/Desktop/screenshots", NULL};
 
 
 /* tagging */
-static const char *tags[] = { "term", "cp", "dev", "spotify", "mpv", "arch", "kek", "no", "try" };
+static const char *tags[] = { "term", "cp", "dev", "music", "mpv",  "kek", "no", "try" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -121,6 +123,8 @@ static const Key keys[] = {
 	{ 0,                       	XF86XK_AudioRaiseVolume,   spawn, {.v = upvol   } },
 	{ 0,				XF86XK_MonBrightnessUp,	   spawn,	{.v = light_up} },
 	{ 0,				XF86XK_MonBrightnessDown,  spawn,	{.v = light_down} },
+	{ 0,				XK_F11,			   spawn, {.v = ss} },
+	{ 0, 				XK_Print,		   spawn, {.v =	ss_full} },
 
 
 };

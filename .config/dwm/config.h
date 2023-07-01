@@ -7,6 +7,7 @@
 static const unsigned int borderpx  = 1;        /* borde__r pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
+static const unsigned int gappx     = 5;        /* gaps between windows */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "IosevkaNerdFont:size=10" };
 static const char dmenufont[]       = "IosevkaNerdFont:size=10";
@@ -23,8 +24,8 @@ static const char *colors[][3]      = {
 static const char *upvol[] = { "/usr/bin/pactl", "set-sink-volume", "@DEFAULT_SINK@", "+10%", NULL };
 static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "@DEFAULT_SINK@", "-10%", NULL };
 static const char *mutevol[] = { "/usr/bin/amixer", "set", "Master", "toggle", NULL };
-static const char *light_up[] = {"/usr/bin/brightnessctl", "s", "5+", NULL};
-static const char *light_down[] = {"/usr/bin/brightnessctl", "s", "5-", NULL};
+static const char *light_up[] = {"/usr/local/bin/brightnessctl", "s", "10+", NULL};
+static const char *light_down[] = {"/usr/local/bin/brightnessctl", "s", "10-", NULL};
 static const char *ss[]={"/usr/bin/flameshot", "gui", NULL};
 static const char *ss_full[]={"/usr/bin/flameshot", "full", "-p", "/home/schconj/Desktop/screenshots", NULL};
 
@@ -108,6 +109,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
+	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
