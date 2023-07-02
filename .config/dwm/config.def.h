@@ -28,7 +28,7 @@ static const char *light_up[] = {"/usr/local/bin/brightnessctl", "s", "10+", NUL
 static const char *light_down[] = {"/usr/local/bin/brightnessctl", "s", "10-", NULL};
 static const char *ss[]={"/usr/bin/flameshot", "gui", NULL};
 static const char *ss_full[]={"/usr/bin/flameshot", "full", "-p", "/home/schconj/Desktop/screenshots", NULL};
-
+static const char *clip_menu[]={"/usr/bin/clipmenu","-i","-fn","Terminus:size=8",NULL};
 
 /* tagging */
 static const char *tags[] = { "term", "cp", "dev", "music", "mpv",  "kek", "no", "try" };
@@ -129,7 +129,8 @@ static const Key keys[] = {
 	{ 0,				XF86XK_MonBrightnessDown,  spawn,	{.v = light_down} },
 	{ 0,				XK_F11,			   spawn, {.v = ss} },
 	{ 0, 				XK_Print,		   spawn, {.v =	ss_full} },
-
+	{ MODKEY,                       XK_v,      	           spawn, {.v = clip_menu} },
+		
 
 };
 
