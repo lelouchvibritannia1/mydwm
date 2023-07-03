@@ -24,8 +24,8 @@ static const char *colors[][3]      = {
 static const char *upvol[] = { "/usr/bin/pactl", "set-sink-volume", "@DEFAULT_SINK@", "+10%", NULL };
 static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "@DEFAULT_SINK@", "-10%", NULL };
 static const char *mutevol[] = { "/usr/bin/amixer", "set", "Master", "toggle", NULL };
-static const char *light_up[] = {"/usr/local/bin/brightnessctl", "s", "10+", NULL};
-static const char *light_down[] = {"/usr/local/bin/brightnessctl", "s", "10-", NULL};
+static const char *light_up[] = {"/usr/bin/brightnessctl", "s", "10+", NULL};
+static const char *light_down[] = {"/usr/bin/brightnessctl", "s", "10-", NULL};
 static const char *ss[]={"/usr/bin/flameshot", "gui", NULL};
 static const char *ss_full[]={"/usr/bin/flameshot", "full", "-p", "/home/schconj/Desktop/screenshots", NULL};
 static const char *clip_menu[]={"/usr/bin/clipmenu","-i","-fn","Terminus:size=8",NULL};
